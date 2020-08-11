@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="main_container">
+    <div class="row">
+        <div class="col-12">
+            <a href="create" class="btn btn-primary create">Create Patient</a>
+            <div class="table-responsive">
+                <table class="table table-white">
+                    <thead class="table-primary">
+                        <tr>
+                            <th>Patient ID</th>
+                            <th>First name</th>
+                            <th>Last name</th>
+                            <th>Address</th>
+                            <th>Contact</th>
+                            <th>Age</th>
+                            <th>Email</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    {% for data in patients %}
+                    <thead class="thead-light">
+                        <tr>
+                            <td>{{data.patient_id}}</td>
+                            <td>{{data.firstname}}</td>
+                            <td>{{data.lastname}}</td>
+                            <td>{{data.address}}</td>
+                            <td>{{data.contact}}</td>
+                            <td>{{data.age}}</td>
+                            <td>{{data.email}}</td>
+                            <td>{{data.date}}</td>
+                            <th>
+                                <a href="update/{{data.patient_id}}" class="btn btn-primary">edit</a> 
+                                <hr>
+                                <a href="delete/{{data.patient_id}}" class="btn btn-success">delete</a>
+                            </th>
+                        </tr>
+                    </thead>
+                {% endfor %}
+                </table>
+            </div>
+</div>
+</div>
+</div>
+<!--to active selected tab in sidebar-->
+<script type="text/javascript">
+    $(function () {
+        $('.sidebar').find('.active').removeClass('active');
+        $('#patient').addClass('active');
+    });
+</script>
+{% endblock %}
