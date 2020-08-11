@@ -1,0 +1,43 @@
+<html>
+<head>
+    <title></title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/custom.css' %}"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src="{% static 'js/jquery-3.5.1.min.js' %}"></script>
+    
+</head>
+<body>
+   
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <img src="{% static 'images/logo.png'  %}" alt="">
+        <p>GOKYO LABORATORY</p>
+
+        <a class="login ml-auto" href="/login">LogOut</a>
+    </nav>
+            
+
+    <div class="sidebar">
+        <div class="col-2 sidebar">
+
+        <br>
+        <div> <a href="/user/"><i class="fa fa-user fa-2x"></i><span>User</span></a></div>
+        <hr>
+        <div> <a href="/patient"><i class="fas fa-users-medical"></i><span>Patient</span></a></div>
+        <hr>
+        <div> <a href="/report"><i class="fa fa-clipboard-user"></i><span>Report</span></a></div>
+        <hr>
+        </div>      
+            
+            
+        <div class="col-9 tbl">
+            {% block content %}{% endblock %}
+        </div>  
+    </div>    
+        
+    </div>
+</div>
+</body>
+</html>
